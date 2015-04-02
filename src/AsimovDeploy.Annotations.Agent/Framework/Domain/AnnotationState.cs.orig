@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+<<<<<<< HEAD:src/AsimovDeploy.Annotations/Framework/Domain/AnnotationState.cs
+using AsimovDeploy.Annotations.Framework.Events;
+=======
+using AsimovDeploy.Annotations.Agent.Framework.Events;
+>>>>>>> 6192f5dbc4ff646b6e77892cd3e9078cdb621b57:src/AsimovDeploy.Annotations.Agent/Framework/Domain/AnnotationState.cs
+
+namespace AsimovDeploy.Annotations.Agent.Framework.Domain
+{
+    public class AnnotationState
+    {
+
+        public AnnotationState(string id, List<IEvent> events = null)
+        {
+            Id = id;
+            Events = events ?? new List<IEvent>();
+            Deploys = new List<UnitDeploy>();
+            unitnames = new List<string>();
+            agents = new List<string>();
+        }
+
+        public string Id { get; set; }
+        public DateTime timestamp { get; set; }
+        public DateTime started { get; set; }
+        public string startedBy { get; set; }
+        public string title { get; set; }
+        public string body { get; set; }
+        public bool completed { get; set; }
+        public DateTime finished { get; set; }
+        public List<UnitDeploy> Deploys { get; set; }
+
+        public List<IEvent> Events { get; set; }
+        public string Message { get; set; }
+        public List<string> unitnames { get; set; }
+        public List<string> agents { get; set; }
+    }
+}
