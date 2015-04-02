@@ -18,10 +18,11 @@ using AsimovDeploy.Annotations.Agent.Framework.Commands;
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Handlers;
 using AsimovDeploy.Annotations.Agent.Framework.Events;
 using FluentAssertions;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.Test
 {
+    [TestFixture]
     public class GivenValidDeployFinishedCommand
     {
         private readonly DeployFinishedEvent _event;
@@ -40,28 +41,28 @@ namespace AsimovDeploy.Annotations.Test
             _event = handler.Execute(_deployStartedCommand) as DeployFinishedEvent;
         }
 
-        [Fact]
+        [Test]
         public void Event_property_body_should_equal_command_property_correlationId()
         {
 
             _event.CorrelationId.Should().Be(_deployStartedCommand.correlationId);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_body_should_equal_command_property_timestamp()
         {
 
             _event.Finished.Should().Be(_deployStartedCommand.timestamp);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_completed_should_be_true()
         {
 
             _event.Completed.Should().Be(true);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_timestamp_should_be_equal_to_utcnow()
         {
 

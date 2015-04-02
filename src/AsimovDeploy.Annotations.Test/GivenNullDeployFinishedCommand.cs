@@ -17,10 +17,11 @@ using AsimovDeploy.Annotations.Agent.Framework.Commands;
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Handlers;
 using AsimovDeploy.Annotations.Agent.Framework.Events;
 using FluentAssertions;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.Test
 {
+    [TestFixture]
     public class GivenNullDeployFinishedCommand
     {
         private readonly DeployFinishedEvent _event;
@@ -33,7 +34,7 @@ namespace AsimovDeploy.Annotations.Test
             _event = handler.Execute(_deployStartedCommand) as DeployFinishedEvent;
         }
 
-        [Fact]
+        [Test]
         public void Event_property_body_should_equal_command_property_correlationId()
         {
             _event.Should().BeNull();

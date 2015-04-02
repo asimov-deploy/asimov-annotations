@@ -18,17 +18,17 @@ using System.Collections.Generic;
 using AsimovDeploy.Annotations.Agent.Framework.Domain;
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Services;
 using AsimovDeploy.Annotations.Agent.Framework.Events;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.IntegrationTest
 {
-    
+    [TestFixture]
     public class AnnotationServiceTest
     {
-        private string _elastic = "http://test-elasticsearch-08.intranet.tradera.com:9200";
-        private string _index = "deploy-annotation";
+        private const string _elastic = "http://localhost:9200";
+        private const string _index = "deploy-annotation";
 
-        [Fact]
+        [Test]
         public void Should_create_a_new_annotation_if_none_already_exists()
         {
             var service = new AnnotationService(new ElasticConfiguration(_elastic, _index));
@@ -38,7 +38,7 @@ namespace AsimovDeploy.Annotations.IntegrationTest
             service.SaveAnnotation(annotation);
         }
 
-        [Fact]
+        [Test]
         public void Should_add_unit_deploy_to_existing_item()
         {
             var service = new AnnotationService(new ElasticConfiguration(_elastic, _index));
@@ -68,7 +68,7 @@ namespace AsimovDeploy.Annotations.IntegrationTest
             service.SaveAnnotation(annotation);
         }
 
-        [Fact]
+        [Test]
         public void Should_add_two_unit_deploy_to_existing_item()
         {
             var service = new AnnotationService(new ElasticConfiguration(_elastic, _index));

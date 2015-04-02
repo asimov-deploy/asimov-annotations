@@ -18,10 +18,11 @@ using AsimovDeploy.Annotations.Agent.Framework.Domain.Handlers;
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Services;
 using AsimovDeploy.Annotations.Agent.Framework.Events;
 using FluentAssertions;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.Test
 {
+    [TestFixture]
     public class GivenNullDeployCompletedCommandCommand
     {
         private readonly UnitDeployCompletedEvent _event;
@@ -37,7 +38,7 @@ namespace AsimovDeploy.Annotations.Test
 
         }
 
-        [Fact]
+        [Test]
         public void returned_event_should_be_null()
         {
             _event.Should().BeNull();

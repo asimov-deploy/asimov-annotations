@@ -22,13 +22,14 @@ using AsimovDeploy.Annotations.Agent.Framework.Domain.Handlers;
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Services;
 using AsimovDeploy.Annotations.Agent.Web.Commands;
 using FluentAssertions;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.Test.CommandExecutor
 {
+    [TestFixture]
     public class AsimovCommandExecutorTests
     {
-        [Fact]
+        [Test]
         public void Handle_started_command()
         {
             var handlers = CreateHandlerList();
@@ -44,7 +45,7 @@ namespace AsimovDeploy.Annotations.Test.CommandExecutor
             annotationService.Current.Version.Should().Be(1);
         }
 
-        [Fact]
+        [Test]
         public void Handle_started_and_first_completed_command()
         {
             var handlers = CreateHandlerList();
@@ -60,7 +61,7 @@ namespace AsimovDeploy.Annotations.Test.CommandExecutor
             annotationService.Current.Version.Should().Be(2);
         }
 
-        [Fact]
+        [Test]
         public void Handle_started_and_first_completed_finished_command()
         {
             var handlers = CreateHandlerList();

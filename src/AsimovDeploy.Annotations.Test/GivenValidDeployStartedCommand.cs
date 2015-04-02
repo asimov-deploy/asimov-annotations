@@ -18,10 +18,11 @@ using AsimovDeploy.Annotations.Agent.Framework.Commands;
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Handlers;
 using AsimovDeploy.Annotations.Agent.Framework.Events;
 using FluentAssertions;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.Test
 {
+    [TestFixture]
     public class GivenValidDeployStartedCommand
     {
         private readonly DeployStartedEvent _event;
@@ -43,42 +44,42 @@ namespace AsimovDeploy.Annotations.Test
             _event = handler.Execute(_deployStartedCommand) as DeployStartedEvent;            
         }
 
-        [Fact]
+        [Test]
         public void Event_property_body_should_equal_command_property_body()
         {
 
             _event.Body.Should().Be(_deployStartedCommand.body);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_StartedBy_should_equal_command_property_StartedBy()
         {
 
             _event.StartedBy.Should().Be(_deployStartedCommand.startedBy);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_title_should_equal_command_property_title()
         {
 
             _event.Title.Should().Be(_deployStartedCommand.title);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_Started_should_equal_command_property_timestamp()
         {
 
             _event.Started.Should().Be(_deployStartedCommand.timestamp);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_correlationId_should_equal_command_property_correlationId()
         {
 
             _event.CorrelationId.Should().Be(_deployStartedCommand.correlationId);
         }
 
-        [Fact]
+        [Test]
         public void Event_property_Timestamp_should_close_to_utc_now()
         {
             _event.Timestamp.Should().BeCloseTo(DateTime.UtcNow, precision: 500);

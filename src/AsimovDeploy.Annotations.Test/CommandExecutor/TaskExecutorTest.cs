@@ -21,13 +21,14 @@ using AsimovDeploy.Annotations.Agent.Framework.Domain.Handlers;
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Services;
 using AsimovDeploy.Annotations.Agent.Web.Commands;
 using FluentAssertions;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.Test.CommandExecutor
 {
+    [TestFixture]
     public class TaskExecutorTest
     {
-        [Fact]
+        [Test]
         public void Trigger_null_command()
         {
             var queue = new ConcurrentCommandQueue();
@@ -42,7 +43,7 @@ namespace AsimovDeploy.Annotations.Test.CommandExecutor
             annotationService.Current.Should().Be(null);
         }
 
-        [Fact]
+        [Test]
         public void Trigger_single_command()
         {
             var queue = new ConcurrentCommandQueue();
@@ -59,7 +60,7 @@ namespace AsimovDeploy.Annotations.Test.CommandExecutor
             annotationService.Current.state.Events.Should().HaveCount(1);
         }
 
-        [Fact]
+        [Test]
         public void Trigger_multiple_commands()
         {
             var queue = new ConcurrentCommandQueue();

@@ -14,13 +14,14 @@
 * limitations under the License.
 ******************************************************************************/
 using AsimovDeploy.Annotations.Agent.Framework.Domain.Services;
-using Xunit;
+using NUnit.Framework;
 
 namespace AsimovDeploy.Annotations.IntegrationTest
 {
+    [TestFixture]
     public class GitServiceTests
     {
-        [Fact]
+        [Test]
         public void GetCommits()
         {
             var gs = new GitService();
