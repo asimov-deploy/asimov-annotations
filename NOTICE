@@ -1,0 +1,15 @@
+Asimov Deploy is making use of the following OSS projects:
+
+For full license files, look in folder library-licenses.
+
+The windows deploy agent
+========================================================================================
+* Newtonsoft.Json from James Newton-King (http://json.codeplex.com/) and is used under the MIT license: http://json.codeplex.com/license
+* Log4net(http://logging.apache.org/log4net) under the Apache license: http://logging.apache.org/log4net/license.html
+* nUnit (http://www.nunit.org/)
+* Nancy (http://nancyfx.org/) under the The MIT License (https://github.com/NancyFx/Nancy/blob/master/license.txt)
+* StructureMap (http://github.com/structuremap/structuremap) under the Apache License: https://github.com/structuremap/structuremap/blob/master/LICENSE.TXT
+* Topshelf (https://github.com/Topshelf/Topshelf) under the Apache License: http://www.apache.org/licenses/LICENSE-2.0.html
+
+
+

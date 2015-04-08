@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AsimovAnnotations.choco</id>
+    <version>1.0.0</version>
+    <title>AsimovAnnotations</title>
+    <authors>Frank Heljebrandt</authors>
+    <owners>Ebay Sweden AB</owners>
+    <licenseUrl>http://www.tradera.com</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Deploy annotation aggregations</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>Asimov Deploy</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="*.exe" target="bin" />
+    <file src="*.dll" target="bin" />
+    <file src="*.config" target="bin" />
+    <file src="NativeBinaries\**\*" target="bin\NativeBinaries" />
+    <file src="Views\**\*" target="bin\Views" />
+  </files>
+</package>

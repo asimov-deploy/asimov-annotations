@@ -1,0 +1,159 @@
+PUT _template/deploy-annotation_template_1 {
+	"template": "deploy-annotation-*",
+	"settings": {
+		"number_of_shards": 3,
+		"number_of_replicas": 0
+	},
+	"aliases": {
+		"deploy-annotations": {}
+	},
+	"mappings": {
+		"annotationstate": {
+			"_source": {
+				"enabled": true
+			},
+			"properties": {
+				"id": {
+					"type": "string",
+					"index": "not_analyzed"
+				},
+				"timestamp": {
+					"type": "date",
+					"index": "not_analyzed"
+				},
+				"started": {
+					"type": "date",
+					"index": "not_analyzed"
+				},
+				"startedBy": {
+					"type": "string",
+					"index": "not_analyzed"
+				},
+				"title": {
+					"type": "string",
+					"index": "analyzed"
+				},
+				"body": {
+					"type": "string",
+					"index": "analyzed"
+				},
+				"unitnames": {
+					"type": "string",
+					"index": "analyzed"
+				},
+				"agents": {
+					"type": "string",
+					"index": "analyzed"
+				},
+				"completed": {
+					"type": "boolean",
+					"index": "not_analyzed"
+				},
+				"finished": {
+					"type": "date",
+					"index": "not_analyzed"
+				},
+				"deploys": {
+					"properties": {
+						"agentName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"branch": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"eventName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"status": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"unitName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"version": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"finished": {
+							"type": "date",
+							"index": "not_analyzed"
+						}
+					}
+				},
+				"events": {
+					"properties": {
+						"$type": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"correlationId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"timestamp": {
+							"type": "date",
+							"index": "not_analyzed"
+						},
+						"startedBy": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"title": {
+							"type": "string",
+							"index": "analyzed"
+						},
+						"body": {
+							"type": "string",
+							"index": "analyzed"
+						},
+						"started": {
+							"type": "date",
+							"index": "not_analyzed"
+						},
+						"eventName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"agentName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"unitName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"version": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"branch": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"status": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"completed": {
+							"type": "boolean",
+							"index": "not_analyzed"
+						},
+						"finished": {
+							"type": "date",
+							"index": "not_analyzed"
+						}
+					}
+				},
+				"message": {
+					"type": "string",
+					"index": "analyzed"
+				}
+			}
+		}
+	}
+}
